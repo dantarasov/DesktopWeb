@@ -26,11 +26,11 @@ public class UserServiveImpl implements  UserService{
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-// sign upped user get a role
+// signupped user get a role
     @Override
     public boolean save(User user) {
       user.setPassword(bCryptPasswordEncoder.encode(user.getPassword())); // encrypting password
-      Set<Role> roles= new HashSet<>(); // set role for user
+      Set<Role> roles= new HashSet<>(); // set role to user
         roles.add(roleDao.getOne(1L));//add one role to user
         user.setRoles(roles); //set it
         userDao.save(user);
