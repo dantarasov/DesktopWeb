@@ -27,7 +27,7 @@ public class UserController {
 
     @RequestMapping(value= "/registration",method = RequestMethod.GET)
     public String registration(Model model){
-        model.addAttribute("userForm", new User());//creat new user
+        model.addAttribute("userForm", new User());
         return "registration";
     }
 
@@ -35,10 +35,10 @@ public class UserController {
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model ) {
         userValidator.validate(userForm, bindingResult);
 
-        if (bindingResult.hasErrors()) { //for get errors while validation and errors while binding req
-            return "registration";  // with errors access is closed
+        if (bindingResult.hasErrors()) { 
+            return "registration"; 
         }
-        userService.save(userForm);//if ererything ok- we save user with autologin and confirmPass
+        userService.save(userForm);
 
         securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
         return "redirect:/welcome";
