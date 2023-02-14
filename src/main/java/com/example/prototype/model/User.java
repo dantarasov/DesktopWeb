@@ -3,7 +3,7 @@ package com.example.prototype.model;
 import javax.persistence.*;
 import java.util.Set;
 
-//Simple JavaBean doamin object that represents a User
+//Simple JavaBean object that represents a User
 @Entity
 @Table(name="users")
 public class User {
