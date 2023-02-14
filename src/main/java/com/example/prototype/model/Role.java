@@ -4,7 +4,7 @@ package com.example.prototype.model;
 
 import javax.persistence.*;
 import java.util.Set;
-//Simple JavaBean doamin object that represents a role
+//Simple JavaBean object that represents a role
 
 @Entity
 @Table(name = "roles")
